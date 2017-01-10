@@ -48,7 +48,7 @@
                         </div>
                         <div class="weui_cell_bd weui_cell_primary">
                             <p>领券中心页面(APP内嵌)</p>
-                            <p><a href="http://m.feiniu.com/my/recharge/vouchermark.html">m.feiniu.com/my/recharge/vouchermark.html</a></p>
+                            <p><a href="http://m.feiniu.com/my/recharge/vouchermark.html">recharge/vouchermark.html</a></p>
                         </div>
                     </li>
                 </ul>
@@ -58,7 +58,10 @@
         
         <mt-popup
           v-show="qrcodeVisible"
-          popup-transition="popup-fade">
+          popup-transition="popup-fade"
+          modal="true"
+          close-on-click-modal="true"
+          modal-class="modal">
           <div class="qrcode" @click="popMention" v-show="qrcodeVisible">
             <img src="../assets/images/qrcode.png" alt="">
           </div>

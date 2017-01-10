@@ -39,6 +39,8 @@ Vue.component(Search.name, Search);
 Vue.component(Swipe.name, Swipe);
 Vue.component(SwipeItem.name, SwipeItem);
 
+import VueCharts from 'vue-chartjs'
+
 const router = new VueRouter({
     hashbang:true,
     saveScrollPosition: true

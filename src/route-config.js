@@ -184,6 +184,11 @@ export default function(router) {
                     }
                 }
             }
+        },
+         '/chart': {
+            component: resolve => {
+                require(['./views/chart.vue'], resolve)
+            }
         }
     })
 
