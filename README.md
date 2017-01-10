@@ -32,7 +32,7 @@ npm run build
 
 ###手机预览(website)
 
-  jasongan.cn(点击试看)
+  jasongan.cn(http://jasongan.cn)
   
 
 ### 开发约定
