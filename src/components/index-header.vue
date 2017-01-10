@@ -12,7 +12,7 @@
             <div class="tips-masker" v-show="tips_isOpen"></div>
         </div> -->
         <div class="center">
-            阿追
+            时间的追逐者
             <span class="parentheses" v-show='chatCount' v-text="index_nav[0].hint.count"></span>
         </div>
     </div>

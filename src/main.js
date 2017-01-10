@@ -20,7 +20,11 @@ Vue.config.devtools = true;
 Vue.use(Vuex)
 Vue.use(VueRouter)
 Vue.use(VueTouch)
-Vue.use(VueAnimatedList)
+// Vue.use(VueAnimatedList)
+
+// import ECharts from 'vue-echarts/src/components/ECharts.vue'
+
+import { Bar, Line } from 'vue-chartjs'
 
 import { Swipe, SwipeItem } from 'mint-ui';
 

@@ -14,9 +14,9 @@ let state = {
         },
         hint: { type: "count", count: 0 }, //count,dot
         iconClass: 'icon-wechat',
-        text: '阿追'
+        text: '时间的追逐者'
     }],
-    menu_active: { text: "阿追", index: 0 },
+    menu_active: { text: "时间的追逐者", index: 0 },
 }
 const mutations = {
     [SET_MENU](state, index_nav) {

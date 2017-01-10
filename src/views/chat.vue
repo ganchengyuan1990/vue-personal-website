@@ -21,7 +21,7 @@
                         <div class="desc-time" v-text="item.chatBaseModel.endTimeStr | fmtDate 'hh:ss'"></div>
                         <div class="desc-title" v-text="item.base.name"></div>
                         <div class="desc-message">
-                            <div class="desc-mute iconfont icon-mute" :title="item.chatConfigModel.newsMute | json" v-show="item.chatConfigModel.newsMute"></div>
+                            <!-- <div class="desc-mute iconfont icon-mute" :title="item.chatConfigModel.newsMute | json" v-show="item.chatConfigModel.newsMute"></div> -->
                             <span :title="item.base.type" v-show="item.base.type==='friends'" v-text="item.chatBaseModel.endChatAuth+':'"></span>
                             <span v-text="item.chatBaseModel.endChatTxt"></span>
                         </div>

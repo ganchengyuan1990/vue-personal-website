@@ -6,7 +6,7 @@ module.exports = [{
     },
     hint: { type: "count", count: 0 }, //count,dot
     iconClass: 'icon-wechat',
-    text: '阿追'
+    text: '时间的追逐者'
 }, {
     index: 1,
     path: {

@@ -18,7 +18,7 @@ var list = [{
     //对话列表基本项
     "chatBaseModel": {
         "newsUnreadCount": 1,
-        "endTimeStr": 1472632586443,
+        "endTimeStr": 1472628586443,
         "endChatAuth": "杨涛",
         "endChatTxt": "Vue项目如何部署?",
     },
@@ -59,7 +59,7 @@ var list = [{
     },
     "chatBaseModel": {
         "newsUnreadCount": 1,
-        "endTimeStr": 1472632586443,
+        "endTimeStr": 1472630586343,
         "endChatAuth": "领导",
         "endChatTxt": "如何把组件引入到项目中",
     },
@@ -109,7 +109,7 @@ var list = [{
     //对话列表基本项
     "chatBaseModel": {
         "newsUnreadCount": 11,
-        "endTimeStr": 1472632586443,
+        "endTimeStr": 1472638586443,
         "endChatAuth": "",
         "endChatTxt": "如何更有效率地使用VUEX",
     },
@@ -174,7 +174,7 @@ var list = [{
     //对话列表基本项
     "chatBaseModel": {
         "newsUnreadCount": 0,
-        "endTimeStr": 1472632586443,
+        "endTimeStr": 1472642586443,
         "endChatAuth": "",
         "endChatTxt": "VUE与REACT各项指标对比",
     },
