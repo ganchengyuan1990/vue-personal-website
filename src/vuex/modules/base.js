@@ -28,7 +28,7 @@ const mutations = {
     },
     [BACK_PATH](state, _path) {
         //设置返回按钮跳转路径,router.afterEach设置
-        debugger
+        //debugger
         state.backPath = { path: _path };
     },
     [SET_CHAT_COUNT](state, count) {

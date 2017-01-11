@@ -1,5 +1,8 @@
 <template>
-	<div><commit-chart :data="chartData"></commit-chart></div>
+	<div>
+		<h1>近七天天气情况</h1>
+		<commit-chart></commit-chart>
+	</div>
    
 </template>
 
@@ -31,3 +34,9 @@
 	  }
 	}
 </script>
+<style>
+	h1{
+		text-align: center;
+		margin: 0.7rem;
+	}
+</style>

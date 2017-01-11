@@ -65,7 +65,7 @@ export default {
     },
     computed:{
         chatCount(){
-            debugger
+            //debugger
             //return  this.menu_active.text==="" && this.index_nav[0].hint.count > 0
             return false
         }

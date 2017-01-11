@@ -76,7 +76,7 @@ export default {
         }
         this.appload = true;
         setTimeout(() => {
-            debugger
+            //debugger
             this.welcome = false;
         }, 2000)
     },
