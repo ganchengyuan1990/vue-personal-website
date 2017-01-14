@@ -1,8 +1,8 @@
 <template>
     <div class="_full_inner _effect component-me" :class="{'_effect--30':decline}">
-        <div class="weather"></div>
+        <div class="weather" @click="hrefWeatherInfo()"></div>
         <div class="weui_cells weui_cells_access me-line">
-            <div class="title"   v-touch:tap='hrefShopping()'>个人简介</div>
+            <div class="title"   @click='hrefShopping()'>个人简介</div>
            <!--  <div class="personalInfo">个人信息</div> -->
             <a class="weui_cell " href="javascript:;">
                 <div class="weui_cell_hd">
@@ -59,7 +59,6 @@
         <mt-popup
           v-show="qrcodeVisible"
           popup-transition="popup-fade"
-          modal="true"
           close-on-click-modal="true"
           modal-class="modal">
           <div class="qrcode" @click="popMention" v-show="qrcodeVisible">
@@ -125,7 +124,8 @@
 
 import {
     set_iframe_url,
-    set_menu_active
+    set_menu_active,
+    get_weather_info
 } from 'actions'
 
 // import MonthlyIncome from 'path/to/component/MonthlyIncome'
@@ -137,7 +137,8 @@ export default {
         },
         actions: {
             set_iframe_url,
-            set_menu_active
+            set_menu_active,
+            get_weather_info
         }
     },
     route: {
@@ -165,9 +166,16 @@ export default {
     },
     methods: {
         hrefShopping(){
-            this.set_iframe_url({title:"个人博客",url:"//blog.jasongan.cn/"},()=>{
+            this.set_iframe_url({title:"个人博客",url:"//jasongan.farbox.com/"},()=>{
                 this.$router.go({
                     path: "/me/shopping"
+                })    
+            });
+        },
+        hrefWeatherInfo() {
+            this.set_iframe_url({title:"个人博客",url:"//jasongan.cn/chart"},()=>{
+                this.$router.go({
+                    path: "/chart"
                 })    
             });
         },
@@ -175,13 +183,31 @@ export default {
             this.$data.popupVisible = !this.$data.popupVisible;
         },
         popQrcode(e) {
-            debugger
             e.stopPropagation(); 
             this.$data.qrcodeVisible = !this.$data.qrcodeVisible;
         }
     },
     created() {
-        $.ajax(
+       // Vue.http.options.emulateHTTP = true;
+        this.get_weather_info(true);
+        this.$http({
+            method: "GET",
+            //url: "http://jasongan.cn/php/hello1.php",
+            url: "http://localhost:9000",
+            headers: {"Content-Type": "application/x-www-form-urlencoded"},
+            emulateJSON: true
+        }).then((response) => {
+                // var result = JSON.parse(response);
+                // alert(result);
+                debugger
+                $('.weather').html("今天" + response.weatherinfo.city + "的气温是" + response.weatherinfo.temp + "度, " + response.weatherinfo.WD + response.weatherinfo.WS + ", 湿度" + response.weatherinfo.SD);
+            }).catch(function(response) {
+                debugger
+                alert(response);
+                var a = {"weatherinfo":{"city":"太仓","cityid":"101190408","temp":"17","WD":"南风","WS":"2级","SD":"47%","WSE":"2","time":"17:05","isRadar":"0","Radar":"","njd":"暂无实况","qy":"1017","rain":"0"}};
+                $('.weather').html("今天" + a.weatherinfo.city + "的气温是" + a.weatherinfo.temp + ", " + a.weatherinfo.WD + a.weatherinfo.WS + ", 湿度" + a.weatherinfo.SD);
+            })
+        /*$.ajax(
           {
             url: "http://jasongan.cn/php/hello1.php",                                   //跨域到http://www.wp.com，另，http://test.com也算跨域
             type: "GET",
@@ -202,7 +228,7 @@ export default {
               // debugger
             }
           }
-        )
+        )*/
     }
 }
 </script>

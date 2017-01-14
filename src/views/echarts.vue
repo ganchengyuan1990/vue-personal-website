@@ -1,5 +1,6 @@
 <template>
-<chart :options="polar"></chart>
+<!-- <chart :options="polar"></chart> -->
+<mt-picker :slots="slots" @change="onValuesChange"></mt-picker>
 </template>
 
 <style>
@@ -22,6 +23,23 @@ export default {
     }
 
     return {
+      slots: [
+        {
+          flex: 1,
+          values: ['北京', '上海', '浙江'],
+          className: 'slot1',
+          textAlign: 'right'
+        }, {
+          divider: true,
+          content: '-',
+          className: 'slot2'
+        }, {
+          flex: 1,
+          values: ["北京","上海", "浙江"],
+          className: 'slot3',
+          textAlign: 'left'
+        }
+      ],
       polar: {
         /*title: {
           text: '极坐标双数值轴'
@@ -56,6 +74,21 @@ export default {
         ],
         animationDuration: 2000
       }
+    }
+  },
+  methods: {
+    onValuesChange(picker, values) {
+      debugger
+      if(values[0] = "北京") {
+         picker.setSlotValue(1, ["北京"]);
+      } else if(values[0] = "浙江") {
+        picker.setSlotValue(1, ["宁波","杭州"]);
+      } else if(values[0] = "上海"){
+        picker.setSlotValue(1, ["上海"]);
+      }
+      /*if (values[0] > values[1]) {
+        picker.setSlotValue(1, values[0]);
+      }*/
     }
   },
   ready() {

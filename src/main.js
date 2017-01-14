@@ -35,11 +35,15 @@ import VueResource from 'vue-resource'
 
 Vue.use(VueResource)
 
-/*import { Swipe, SwipeItem } from 'mint-ui';
+import { Swipe, SwipeItem } from 'mint-ui';
 
 import { Search } from 'mint-ui';
 
-import { Popup } from 'mint-ui';*/
+import { Popup } from 'mint-ui';
+
+import { Picker } from 'mint-ui';
+
+Vue.component(Picker.name, Picker);
 
 Vue.component(Popup.name, Popup);
 
@@ -47,6 +51,11 @@ Vue.component(Search.name, Search);
 
 Vue.component(Swipe.name, Swipe);
 Vue.component(SwipeItem.name, SwipeItem);
+
+/*import {api} from 'NeteaseCloudMusicApi'
+api.search('年度之歌',data => {
+    console.log(data)
+})*/
 
 // import VueCharts from 'vue-chartjs'
 

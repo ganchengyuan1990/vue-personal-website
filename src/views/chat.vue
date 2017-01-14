@@ -209,4 +209,7 @@ export default {
 .swipe img{
    width: 100%;
 }
+.mint-search {
+    height: 2.75rem !important;
+}
 </style>

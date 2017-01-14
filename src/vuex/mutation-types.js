@@ -13,3 +13,6 @@ export const DELETE_NEWS = 'DELETE_NEWS'
 export const PERSON_INFO = 'PERSON_INFO'
 export const CONTACT_FRIENDS = 'CONTACT_FRIENDS'
 export const FRIEND_ID = 'FRIEND_ID'
+
+//me
+export const GET_WEATHER_INFO = 'GET_WEATHER_INFO'

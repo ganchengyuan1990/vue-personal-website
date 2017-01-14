@@ -45,6 +45,11 @@ export const set_iframe_url = ({ dispatch }, urlObj, fn) => {
     !!fn && fn()
 }
 
+//ME
+export const get_weather_info = ({ dispatch }, flag) => {
+    dispatch('GET_WEATHER_INFO', flag)
+    //!!fn && fn()
+}
 
 
 //优雅结构,可读性略差
