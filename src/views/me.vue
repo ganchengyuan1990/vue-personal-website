@@ -190,12 +190,15 @@ export default {
     created() {
        // Vue.http.options.emulateHTTP = true;
         this.get_weather_info(true);
-        this.$http({
+        /*this.$http({
             method: "GET",
+            dataType : "jsonp",
+            jsonp: "callbackparam",//传递给请求处理程序或页面的，用以获得jsonp回调函数名的参数名(默认为:callback)
+            jsonpCallback:"callback",//自定义的jsonp回调函数名称，默认为jQuery自动生成的随机函数名
             //url: "http://jasongan.cn/php/hello1.php",
-            url: "http://localhost:9000",
+            url: "http://localhost:9001",
             headers: {"Content-Type": "application/x-www-form-urlencoded"},
-            emulateJSON: true
+            //emulateJSON: true
         }).then((response) => {
                 // var result = JSON.parse(response);
                 // alert(result);
@@ -206,17 +209,30 @@ export default {
                 alert(response);
                 var a = {"weatherinfo":{"city":"太仓","cityid":"101190408","temp":"17","WD":"南风","WS":"2级","SD":"47%","WSE":"2","time":"17:05","isRadar":"0","Radar":"","njd":"暂无实况","qy":"1017","rain":"0"}};
                 $('.weather').html("今天" + a.weatherinfo.city + "的气温是" + a.weatherinfo.temp + ", " + a.weatherinfo.WD + a.weatherinfo.WS + ", 湿度" + a.weatherinfo.SD);
+            })*/
+        this.$http.jsonp("http://localhost:9001", {
+        }).then((response) => {
+                var result = response.body;
+                // alert(result);
+                debugger
+                $('.weather').html("今天" + result.weatherinfo.city + "的气温是" + result.weatherinfo.temp + "度, " + result.weatherinfo.WD + result.weatherinfo.WS + ", 湿度" + result.weatherinfo.SD);
+            }).catch(function(response) {
+                debugger
+                alert(response);
+                var a = {"weatherinfo":{"city":"太仓","cityid":"101190408","temp":"17","WD":"南风","WS":"2级","SD":"47%","WSE":"2","time":"17:05","isRadar":"0","Radar":"","njd":"暂无实况","qy":"1017","rain":"0"}};
+                $('.weather').html("今天" + a.weatherinfo.city + "的气温是" + a.weatherinfo.temp + ", " + a.weatherinfo.WD + a.weatherinfo.WS + ", 湿度" + a.weatherinfo.SD);
             })
         /*$.ajax(
           {
-            url: "http://jasongan.cn/php/hello1.php",                                   //跨域到http://www.wp.com，另，http://test.com也算跨域
+            url: "http://localhost:9001",                                   //跨域到http://www.wp.com，另，http://test.com也算跨域
             type: "GET",
             headers: {"Content-Type": "application/x-www-form-urlencoded"},
-            //dataType: 'jsonp',                          //指定为jsonp类型
-            //data: `data=${postStr}`,                    //数据参数
-            //jsonp: 'callback',
+            dataType: 'jsonp',                          //指定为jsonp类型
+           // data: `data=${postStr}`,                    //数据参数
+            jsonp: 'callbacks',
+            jsonpCallback:"success_jsonpCallback",
             success: function (e) {
-                var result = JSON.parse(e);
+                var result = e;
                 // $('.weather').html(result);
                 $('.weather').html("今天" + result.weatherinfo.city + "的气温是" + result.weatherinfo.temp + "度, " + result.weatherinfo.WD + result.weatherinfo.WS + ", 湿度" + result.weatherinfo.SD);
             },
