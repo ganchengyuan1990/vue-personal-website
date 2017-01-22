@@ -166,7 +166,7 @@ export default {
     },
     methods: {
         hrefShopping(){
-            this.set_iframe_url({title:"个人博客",url:"//jasongan.farbox.com/"},()=>{
+            this.set_iframe_url({title:"个人博客",url:"//ganchengyuan1990.github.io/blog/"},()=>{
                 this.$router.go({
                     path: "/me/shopping"
                 })    
