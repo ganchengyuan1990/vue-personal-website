@@ -3,8 +3,12 @@
         <!-- <search-bar></search-bar> -->
         <mt-search
           cancel-text="取消"
-          placeholder="搜索">
+          placeholder="搜索"
+          @keyup="baiduSearch(value)" class="searchText">
         </mt-search>
+        <div class="searchContent">
+            
+        </div>
         <div class="dataInfo">2017-01-10</div>
         <ul class="wechat-list">
             <li class="item _line-fine" v-for="item in wechat_list" transition="chat-item">
@@ -106,6 +110,7 @@ export default {
             currentIndex: -1, //列表item处在左划状态
             isTouchSwipe: false, //验证是否处于左划状态,
             value: "",
+            searchShow: false,
         }
     },
     events: {
@@ -115,6 +120,23 @@ export default {
         }
     },
     methods: {
+        baiduSearch(value) {
+            var search = $('.searchText input').val();
+            var _url = 'https://sp0.baidu.com/5a1Fazu8AA54nxGko9WTAnF6hhy/su?wd='+search+'&json=1&p=3&sid=20144_1467_19033_20515_18240_17949_20388_20456_18133_17001_15202_11615&req=2&csor=2&pwd=s&cb=jQuery110207612423721154653_1467355506619&_=1467355506623';
+            this.$http({
+                method: "GET",
+                dataType:'jsonp',
+                async:true,
+                jsonp: "callbackparam",//传递给请求处理程序或页面的，用以获得jsonp回调函数名的参数名(默认为:callback)
+                jsonpCallback:'jQuery110207612423721154653_1467355506619',
+                url:_url,
+                headers: {"Content-Type": "application/x-www-form-urlencoded"},
+            }).then((response) => {
+                debugger
+            }).catch(function(response){
+                debugger
+            });
+        },
         info_touchstart(_index) {
             this.currentIndex = -1
         },
@@ -211,5 +233,8 @@ export default {
 }
 .mint-search {
     height: 2.75rem !important;
+}
+.searchContent {
+    display: none;
 }
 </style>
