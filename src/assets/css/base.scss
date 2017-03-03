@@ -15,7 +15,7 @@
     height: 60px;
     line-height: 60px;
     font-size: 25px;
-    background: linear-gradient(to bottom, #303036, #3c3b40);
+    background: linear-gradient(to bottom, #d1e1e1, #d4e1e1);
     color: #ffffff;
     text-align: center;
 }
@@ -23,9 +23,9 @@
 .app-content {
     padding-top: 60px;
     padding-bottom: 50px;
-    overflow: hidden;
+    /* overflow: hidden;
     position: relative;
-    height: 100%;
+    height: 100%; */
 }
 
 .app-content ._full_inner {

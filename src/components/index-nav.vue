@@ -12,6 +12,8 @@
 import {
     index_nav
 } from 'getters'
+
+debugger
 import {
     get_index_nav,
     set_menu_active
@@ -38,6 +40,7 @@ export default {
 
     },
     created() {
+        debugger
         this.get_index_nav()
     },
     methods: {}

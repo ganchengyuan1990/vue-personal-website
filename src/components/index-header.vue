@@ -1,19 +1,9 @@
 <template>
     <div class="_cover-top">
-        <!-- <div class="other">
-            <span class="iconfont icon-tips-jia" v-show="$route.path==='/chat'" v-touch:tap="tap"></span>
-            <span class="iconfont icon-tips-add-friend" v-show="$route.path==='/contact'" v-link='{path:"/contact/add-friends"}'></span>
-            <ul class="tips-menu" :class="tips_isOpen?'tips-open':'tips-close'">
-                <li v-for="item in menuArr" v-link="item._link">
-                    <span class="iconfont" :class="item.iconClass"></span>
-                    <div v-text="item.text"></div>
-                </li>
-            </ul>
-            <div class="tips-masker" v-show="tips_isOpen"></div>
-        </div> -->
         <div class="center">
             时间的追逐者
             <span class="parentheses" v-show='chatCount' v-text="index_nav[0].hint.count"></span>
+            <div class="close" @click="popMask" > <span class="close-icon"></span></div>
         </div>
     </div>
 </template>
@@ -82,6 +72,13 @@ export default {
         tap() {
             event.stopPropagation();
             this.tips_isOpen = !this.tips_isOpen
+        },
+
+        popMask() {
+            debugger
+            var target = document.getElementsByClassName('menu-mask')[0];
+            var menu = document.getElementsByClassName('menu')[0];
+            target.classList.length > 1 ? target.classList.remove('hide_it') || menu.classList.remove('hide_it') : target.classList.add('hide_it') || menu.classList.add('hide_it');
         }
 
     }
@@ -174,5 +171,55 @@ export default {
 
 .other .tips-menu .iconfont {
     margin-right: 15px;
+}
+.close {
+    font-size: 14px;
+    position: absolute;
+    right: 18px;
+    top: 18px;
+    height: 25px;
+    width: 25px;
+    text-align: left;
+}
+.close span {
+    width: 25px;
+    height: 2px;
+    background-color: #fff;
+    -webkit-transition: .3s;
+    transition: .3s;
+    border-radius: 1px;
+    display: inline-block;
+    line-height: 20px;
+    position: absolute;
+    top: 10px;
+}
+.close-icon:after {
+    bottom: -8px;
+    content: '';
+    position: absolute;
+    -webkit-transform-origin: left 50%;
+    transform-origin: left 50%;
+    outline: 1px solid transparent;
+    width: 25px;
+    height: 2px;
+    background-color: #fff;
+    -webkit-transition: .3s;
+    transition: .3s;
+    border-radius: 1px;
+}
+
+.close-icon:before {
+    top: -8px;
+    content: '';
+    position: absolute;
+    -webkit-transform-origin: left 50%;
+    transform-origin: left 50%;
+    outline: 1px solid transparent;
+    width: 25px;
+    height: 2px;
+    background-color: #fff;
+    -webkit-transition: .3s;
+    transition: .3s;
+    border-radius: 1px;
 }
 </style>
